@@ -1,4 +1,4 @@
-import { IConfig } from '@models/config.interface';
+import { IConfig } from '../../models/config.interface';
 
 
 export interface IConfigState {
