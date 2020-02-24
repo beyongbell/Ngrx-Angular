@@ -24,7 +24,9 @@ export class UserEffects {
     map(action => action.payload),
     withLatestFrom(this.store.pipe(select(selectUserList))),
     switchMap(([id, users]) => {
-      const selectedUser = users.filter(user => user.id === +id)[0];
+      console.log(id);
+      const selectedUser = users.filter(user => user.id === 1)[0];
+      console.log(selectedUser);
       return of(new GetUserSuccess(selectedUser));
     })
   );
@@ -40,5 +42,5 @@ export class UserEffects {
     private userService: UserService,
     private actions$: Actions,
     private store: Store<IAppState>
-  ) {}
+  ) { }
 }
