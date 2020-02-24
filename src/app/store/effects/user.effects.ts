@@ -25,7 +25,7 @@ export class UserEffects {
     withLatestFrom(this.store.pipe(select(selectUserList))),
     switchMap(([id, users]) => {
       console.log(id);
-      const selectedUser = users.filter(user => user.id === 1)[0];
+      const selectedUser = users.filter(user => user.id === id)[0];
       console.log(selectedUser);
       return of(new GetUserSuccess(selectedUser));
     })

@@ -1,6 +1,6 @@
 <div>
   <p>
-    Name: {{ user.name }}
+    Name: {{ user.name | async  }}
   </p>
   <p>
     Card Number: {{ user.cardNumber | async  }}
