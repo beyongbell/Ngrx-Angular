@@ -9,15 +9,27 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
+import { appReducers } from '@reducers/app.reducers';
+import { environment } from '@environments/environment';
+
+import { ConfigEffects } from '@effects/config.effects';
+import { UserEffects } from '@effects/user.effects';
+
+import { UserService } from '@services/user.service';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([UserEffects, ConfigEffects]),
+    StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

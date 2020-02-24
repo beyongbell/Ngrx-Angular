@@ -7,7 +7,7 @@
       "@models/*": ["app/models/*"],
       "@services/*": ["app/services/*"],
       "@actions/*": ["app/store/actions/*"],
-      "@effects/*": ["app/store/effects*"],
+      "@effects/*": ["app/store/effects/*"],
       "@reducers/*": ["app/store/reducers/*"],
       "@selectors/*": ["app/store/selectors/*"],
       "@states/*": ["app/store/states/*"],
