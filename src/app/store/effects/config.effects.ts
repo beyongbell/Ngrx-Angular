@@ -4,22 +4,22 @@ import { Effect, ofType, Actions } from '@ngrx/effects';
 import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-import { IConfig } from '../../models/config.interface';
-import { ConfigService } from './../../services/config.service';
-import { EConfigActions, GetConfig, GetConfigSuccess } from '../actions/config.actions';
+import { IConfig } from '@models/config.interface';
+import { ConfigService } from '@services/config.service';
+import { EConfigActions, GetConfig, GetConfigSuccess } from '@actions/config.actions';
 
 @Injectable()
 export class ConfigEffects {
   @Effect()
-  getConfig$ = this._actions$.pipe(
+  getConfig$ = this.actions$.pipe(
     ofType<GetConfig>(EConfigActions.GetConfig),
-    switchMap(() => this._configService.getConfig()),
+    switchMap(() => this.configService.getConfig()),
     switchMap((config: IConfig) => {
       return of(new GetConfigSuccess(config));
     })
   );
 
   constructor(
-    private _configService: ConfigService,
-    private _actions$: Actions) {}
+    private configService: ConfigService,
+    private actions$: Actions) {}
 }
