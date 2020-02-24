@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -17,13 +19,19 @@ import { UserEffects } from '@effects/user.effects';
 
 import { UserService } from '@services/user.service';
 
+import { UsersComponent } from '@pages/users/users.component';
+import { DetailComponent } from '@pages/detail/detail.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UsersComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([UserEffects, ConfigEffects]),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),

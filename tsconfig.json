@@ -5,6 +5,7 @@
     "paths": {
       "@environments/*": ["environments/*"],
       "@models/*": ["app/models/*"],
+      "@pages/*": ["app/pages/*"],
       "@services/*": ["app/services/*"],
       "@actions/*": ["app/store/actions/*"],
       "@effects/*": ["app/store/effects/*"],
