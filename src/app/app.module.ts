@@ -19,14 +19,19 @@ import { UserEffects } from '@effects/user.effects';
 
 import { UserService } from '@services/user.service';
 
+import { UserComponent } from '@containers/user/user.component';
+import { UsersComponent as UsersContainerComponent } from '@containers/users/users.component';
+
 import { UsersComponent } from '@pages/users/users.component';
 import { DetailComponent } from '@pages/detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    UsersContainerComponent,
+    UserComponent,
     UsersComponent,
-    DetailComponent
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
